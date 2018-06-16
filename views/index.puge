@@ -1,0 +1,100 @@
+doctype html
+html
+  head
+    // Import Google Icon Font
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Import materialize.css
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css')
+    // Let browser know website is optimized for mobile
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(charset='utf-8')
+    title Working Document
+    style.
+      @import url('https://fonts.googleapis.com/css?family=Pacifico');
+      h1{
+      font-family: 'Pacifico', cursive;
+      }
+      h3{
+      cursor: pointer;
+      }
+      .container{
+      /*border: 3px cyan solid;*/
+      padding:10px;
+      }
+      .tabs{
+      overflow-x: hidden;
+      }
+  body.yellow
+    // Import jQuery before materialize.js
+    script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js')
+    .container
+      // Page Title
+      h1.card-panel.red.accent-4.white-text.center-align Personal Diary
+      // Tabbed Panes
+      .row
+        .col.s12
+          ul.tabs(class='.tabs-fixed-width')
+            li.tab.col.s4
+              a.active(href='#acct') Account
+            li.tab.col.s4(class='disabled')
+              a(href='#write') Write
+            li.tab.col.s4(class='disabled')
+              a(href='#view') View
+      // Account
+      #acct.row
+        h1.col.s12.center-align Welcome! Please Enter Your Unique ID to Continue
+        .row.center-align(style='margin-left: auto;margin-right: auto; width: 50%')
+          .input-field.col.s8
+            i.material-icons.prefix fiber_pin
+            input#psswd(type='password')
+            // <label for="psswd">Password</label>
+          .input-field.col.s8
+            button.btn-large.waves-effect.waves-red(type='submit') Take Me In
+      // End of ACCOUNT
+      // FORM
+      #write.col.s12
+        form#per_form(method='', action='')
+          .input-field.col.s12
+            i.material-icons.prefix label
+            input#title_per.white-text(type='text', title='Please Enter title', required='')
+            label(for='title_per') TITLE
+          .input-field.col.s12
+            i.material-icons.prefix today
+            input#icon_date.datepicker(type='date', title='Please Select Date', required='')
+            label(for='icon_date') DATE
+          .input-field.col.s12
+            i.material-icons.prefix mode_edit
+            textarea#icon_prefix2.materialize-textarea(title='Please Enter your note', required='')
+            label(for='icon_prefix2') PERSONAL NOTE
+          .center-align
+            // <input id="save-note" class="btn waves-effect waves-red" style="padding: 0 2rem; border:none" type="submit" value="save">
+            button#save-note.btn-large.waves-effect.waves-red(type='submit') save
+      // End of form
+      // VIEW NOTE
+      #view.row
+        .col.s12.center-align
+          h4.red-text This was how your day was on (*Date*)
+      // End of NOTE
+    h3#yel-clk.yellow YELLOW
+    h3#blk-clk.black.white-text BLACK
+    script.
+      $('ul.tabs').tabs();
+      $('#yel-clk').click(function(){
+      $('body').removeClass('black');
+      $('body').addClass('yellow');
+      });
+      $('#blk-clk').click(function(){
+      $('body').removeClass('yellow');
+      $('body').addClass('black');
+      });
+      $('.datepicker').pickadate(function(){
+      selectMonths:true;
+      selectYears:15;
+      });
+      $('#save-note').click(function(){
+      submit();
+      });
+      $('#per_form').on("submit",function(){
+      alert('Success! Note Submitted');
+      })

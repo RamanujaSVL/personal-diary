@@ -1,0 +1,19 @@
+{
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "A personal diary application",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "author": "Ramanuja SVL",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.9",
+    "express": "^4.15.3",
+    "mongojs": "^2.5.0",
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-rc.2"
+  }
+}

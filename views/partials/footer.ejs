@@ -1,0 +1,59 @@
+<script>
+$(document).ready(function(){
+   $('.tooltipped').tooltip();
+   $('.modal').modal();
+   $('.datepicker').datepicker();
+ });
+
+var res = '<%=result%>';
+
+if(res =='success' || res == 'articlePosted'){
+  if(res =='success')
+  M.toast({html: 'Successfully Logged in!',displayLength:5000, classes:'toastSC'});
+  if(res == 'articlePosted')
+  M.toast({html: 'Successfully Posted Your Article!',displayLength:5000, classes:'toastSC'});
+  $('#viewL').removeClass('tooltipped');
+  $('#writeL').removeClass('tooltipped');
+  $('#writeL').removeClass('disabled');
+  $('#acct').removeClass('active');
+  $('#writeL').addClass('active');
+  $('#viewL').removeClass('disabled');
+}
+else{
+  if(res == 'err'){
+    M.toast({html: 'Log In Failed, Retry!',displayLength:8000, classes:'toastFC'});
+    $('#writeL').addClass('disabled');
+    $('#viewL').addClass('disabled');
+  }
+}
+
+    $('ul.tabs').tabs();
+
+    $('#save-note').click(function() {
+        submit();
+    });
+    $('#per_form').on("submit", function() {
+        alert('Success! Note Submitted');
+    })
+
+    $('.openNote').on('click', function(){
+      var myTitle = $(this).find('.nTitle').text();
+      var myDate = $(this).find('.nDate').text();
+      var myNote = $(this).find('.nContent').text();
+      //alert(myNoteId);
+      $('.modal-content').html('<h4>'+myTitle+'</h4><h6>'+myDate+'</h6><p>'+myNote+'</p>');
+    })
+
+    /*$('#yel-clk').click(function() {
+        $('body').removeClass('black');
+        $('body').addClass('yellow');
+    });
+    $('#blk-clk').click(function() {
+        $('body').removeClass('yellow');
+        $('body').addClass('black');
+    });*/
+
+</script>
+</body>
+
+</html>
