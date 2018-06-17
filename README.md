@@ -1,10 +1,10 @@
 # Personal Diary
 #### It's MEAN Stack application(without Angular for now :grimacing:).
-### Basic Functionalities
+### Basic Functionalities:
 ##### Basic Login, posting your note and view functionalities working.
 ##### Yet to make validations work and have to improvise the application.
 
-**Prerequisites**
+**Prerequisites:**
 * Node JS
 * Mongo DB
 * Git Bash
@@ -13,7 +13,7 @@
 **Steps to install this Application in your local**
 1. Run the command on git bash
   ```sh
-  $ git clone
+  $ git clone https://github.com/RamanujaSVL/personal-diary.git
   ```
 2. Run the following command to install dependencies from package.json
   ```sh
