@@ -19,3 +19,6 @@
   ```sh
   $ npm install
   ```
+
+### This application is live on the below AWS link
+[AWS](http://ec2-18-208-164-38.compute-1.amazonaws.com:8080/)
