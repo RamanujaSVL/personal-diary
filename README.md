@@ -20,5 +20,8 @@
   $ npm install
   ```
 
-### This application is live on the below AWS link
+### This application will be live on the below AWS link(on request :sunglasses:)
 [AWS](http://ec2-18-208-164-38.compute-1.amazonaws.com:8080/)
+
+#### Default Password
+##### 1234
