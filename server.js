@@ -12,6 +12,11 @@ var db = mongojs('personalDiary', ['notes'])
   //app.set('view engine', 'pug');
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'ejs');
+
+//Adding Folders for Access to requests for JS/CSS files
+  app.use(express.static('js'));
+
+//Declaring variables to be sent from sever along with response
 app.use(function(req, res, next){
   res.locals.result=null;
   res.locals.data=null;
