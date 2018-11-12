@@ -7,6 +7,7 @@ const app = express();
 
 //Route Variables
   var index = require('./routes/index')
+  var welcome = require('./routes/welcome')
   var account = require('./routes/account')
   var logout = require('./routes/logout')
 
@@ -32,6 +33,7 @@ const app = express();
 
 // Home Module
   app.use('/',index)
+  app.use('/welcome',welcome)
 
 //Account Module
   app.use('/account',account)

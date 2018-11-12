@@ -9,7 +9,7 @@ var bPass = validatePasword(req);
   if(bPass){
     var content = null;
     db.notes.find(function (err, docs) {
-      res.render('index',{
+      res.render('account',{
         result:'success',
         data:docs
       });
@@ -20,6 +20,7 @@ var bPass = validatePasword(req);
     res.render('index',{
       result:'err'
     });
+    res.redirect('/');
   }
 });
 
@@ -65,7 +66,7 @@ function validatePasword(req){
   cPin = parseInt(cPin.join(''));
   }
 
-  //console.log('Pin is: '+cPin+' You entered: '+req.body.psswd);
+  console.log('Pin is: '+cPin+' You entered: '+req.body.psswd);
 
   if(parseInt(req.body.psswd)==cPin)
   return true;
