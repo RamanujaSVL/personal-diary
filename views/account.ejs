@@ -1,0 +1,98 @@
+<% include partials/header%>
+  <input type="hidden" name="chk" value="">
+    <div class="container">
+        <!-- Page Title-->
+        <h1 class="card-panel red accent-4 white-text center-align">Personal Diary</h1>
+        <!-- Tabbed Panes-->
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab col s4"><a class="active" href="#acct">Account</a></li>
+                    <li data-position="bottom" data-tooltip="Login to access this tab" class="tab col s4 disabled tooltipped" id="writeL"><a href="#write">Write</a></li>
+                    <li data-position="bottom" data-tooltip="Login to access this tab" id="viewL" class="tab col s4 disabled tooltipped" ><a href="#view">View</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <%if(result=='success' || result=='articlePosted'){%>
+        <!-- Account-->
+        <div class="row" id="acct">
+          <form method="get" action="/logout">
+            <h1 class="col s12 center-align">Hi! Ramanuja, Make Your selection</h1>
+                <div class="input-field col s8 center-align">
+                  <button class="btn-large waves-effect waves-red" type="submit">Log Out</button>
+                </div>
+          </form>
+        </div>
+        <!-- FORM-->
+        <div class="col s12" id="write">
+            <form id="per_form" method="post" action="/account/postArticle">
+                <div class="input-field col s12"><i class="material-icons prefix">label</i><input name='per_title' class="white-text" id="title_per" type="text" title="Please Enter title" required=""><label for="title_per">TITLE</label></div>
+                <div class="input-field col s12"><i class="material-icons prefix">today</i><input name='per_date' class="datepicker" id="icon_date" type="date" title="Please Select Date" required=""><label for="icon_date">DATE</label></div>
+                <div class="input-field col s12"><i class="material-icons prefix">mode_edit</i><textarea name='per_note' class="materialize-textarea" id="icon_prefix2" title="Please Enter your note" required=""></textarea><label for="icon_prefix2">PERSONAL NOTE</label></div>
+                <div class="center-align">
+                    <!-- <input id="save-note" class="btn waves-effect waves-red" style="padding: 0 2rem; border:none" type="submit" value="save">-->
+                    <button class="btn-large waves-effect waves-red" id="save-note" type="submit">save</button>
+                </div>
+            </form>
+        </div>
+        <!-- End of form-->
+        <!-- VIEW NOTE-->
+        <div class="row" id="view">
+            <div class="col s12 center-align">
+                <!--<h4 class="red-text">This was how your day was on (*Date*)</h4>-->
+                <table>
+                  <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                  </tr>
+                <%if(data!=null){
+                data.forEach(function(val){%>
+                  <tr class="openNote">
+                    <td class='nDate'><%=val.date%></td>
+                    <td class='nTitle'><%=val.title%></td>
+                    <td class='nContent'><%=val.content%></td>
+                    <td><a class="red waves-effect waves-light btn modal-trigger" href="#modalNote">View</a></td>
+                  </tr>
+                <%})}%>
+              </table>
+
+              <div id="modalNote" class="modal">
+               <div class="modal-content">
+               </div>
+               <div class="modal-footer">
+                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+               </div>
+             </div>
+
+              <div class='center-align'>
+                <form method='get' action='/logout'>
+                  <button class="btn-large waves-effect waves-red" id="save-note" type="submit">LogOut</button>
+                </form>
+              </div>
+            </div>
+        </div>
+        <!-- End of NOTE-->
+        <%}%>
+
+        <%if(result!='success' && result!='articlePosted'){%>
+        <!-- Account-->
+        <div class="row" id="acct">
+          <form method="post" action="/account">
+            <h1 class="col s12 center-align">Welcome! Please Enter Your Unique ID to Continue</h1>
+            <div class="row center-align" style="margin-left: auto;margin-right: auto; width: 50%;">
+                <div class="input-field col s8"><i class="material-icons prefix">fiber_pin</i>
+                  <input name="psswd" id="psswd" type="password">
+                    <!-- <label for="psswd">Password</label>-->
+                </div>
+                <div class="input-field col s8">
+                  <button class="btn-large waves-effect waves-red" type="submit">Take Me In</button>
+                </div>
+              </div>
+          </form>
+        </div>
+        <%}%>
+        <!-- End of ACCOUNT-->
+    </div>
+<% include partials/footer%>
