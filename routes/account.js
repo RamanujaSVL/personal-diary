@@ -40,7 +40,7 @@ router.post('/postArticle', function(req, res){
     }
 
     db.notes.find(function (err, docs) {
-      res.render('index',{
+      res.render('account',{
         result:'articlePosted',
         data:docs
       });

@@ -1,13 +1,13 @@
 <% include partials/header%>
   <input type="hidden" name="chk" value="">
-    <div class="container">
+    <div class="container" ng-app="pd" ng-controller="HttpGetController">
         <!-- Page Title-->
         <h1 class="card-panel red accent-4 white-text center-align">Personal Diary</h1>
         <!-- Tabbed Panes-->
         <div class="row">
             <div class="col s12">
                 <ul class="tabs tabs-fixed-width">
-                    <li class="tab col s4"><a class="active" href="#acct">Account</a></li>
+                    <li class="tab col s4"><a class="active" href="#acct">Ram's Diary</a></li>
                     <li data-position="bottom" data-tooltip="Login to access this tab" class="tab col s4 disabled tooltipped" id="writeL"><a href="#write">Write</a></li>
                     <li data-position="bottom" data-tooltip="Login to access this tab" id="viewL" class="tab col s4 disabled tooltipped" ><a href="#view">View</a></li>
                 </ul>
@@ -15,7 +15,7 @@
         </div>
 
         <%if(result=='success' || result=='articlePosted'){%>
-        <!-- Account-->
+        <!-- Diary Home-->
         <div class="row" id="acct">
           <form method="get" action="/logout">
             <h1 class="col s12 center-align">Hi! Ramanuja, Make Your selection</h1>
@@ -32,7 +32,7 @@
                 <div class="input-field col s12"><i class="material-icons prefix">mode_edit</i><textarea name='per_note' class="materialize-textarea" id="icon_prefix2" title="Please Enter your note" required=""></textarea><label for="icon_prefix2">PERSONAL NOTE</label></div>
                 <div class="center-align">
                     <!-- <input id="save-note" class="btn waves-effect waves-red" style="padding: 0 2rem; border:none" type="submit" value="save">-->
-                    <button class="btn-large waves-effect waves-red" id="save-note" type="submit">save</button>
+                    <button ng-click="ajaxPost()" class="btn-large waves-effect waves-red" id="save-note" type="submit">save</button>
                 </div>
             </form>
         </div>
@@ -76,23 +76,9 @@
         <!-- End of NOTE-->
         <%}%>
 
-        <%if(result!='success' && result!='articlePosted'){%>
         <!-- Account-->
-        <div class="row" id="acct">
-          <form method="post" action="/account">
-            <h1 class="col s12 center-align">Welcome! Please Enter Your Unique ID to Continue</h1>
-            <div class="row center-align" style="margin-left: auto;margin-right: auto; width: 50%;">
-                <div class="input-field col s8"><i class="material-icons prefix">fiber_pin</i>
-                  <input name="psswd" id="psswd" type="password">
-                    <!-- <label for="psswd">Password</label>-->
-                </div>
-                <div class="input-field col s8">
-                  <button class="btn-large waves-effect waves-red" type="submit">Take Me In</button>
-                </div>
-              </div>
-          </form>
-        </div>
-        <%}%>
+
         <!-- End of ACCOUNT-->
+
     </div>
 <% include partials/footer%>

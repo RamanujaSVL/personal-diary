@@ -10,16 +10,11 @@ $(document).ready(function(){
 var res = '<%=result%>';
 successOrErrorMessages(res);
 
-    $('#save-note').click(function() {
-        $http.post("http://localhost:3003/account/postArticle").then(successCallback(), errorCallback());
-        submit();
-    });
+expandArticleInModal();
 
-    expandArticleInModal();
-
-    function successCallback(){
-      alert('Success');
-    }
+function successCallback(){
+  alert('Success');
+}
 
 </script>
 </body>

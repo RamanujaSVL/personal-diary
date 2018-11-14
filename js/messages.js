@@ -30,3 +30,10 @@ function expandArticleInModal(){
   })
 
 }
+
+var app = angular.module('pd', []);
+app.controller('HttpGetController', function ($scope, $http) {
+  $scope.ajaxPost = function(){
+
+  };
+});
