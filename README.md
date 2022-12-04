@@ -1,5 +1,7 @@
-# Personal Diary
-#### It's MEAN Stack application(without Angular for now :grimacing:).
+#THIS IS AN UNFINISHED SIDE PROJECT....
+
+### Personal Diary
+#### It's MEAN Stack application
 ### Basic Functionalities:
 ##### Basic Login, posting your note and view functionalities working.
 ##### Yet to make validations work and have to improvise the application.
@@ -19,9 +21,3 @@
   ```sh
   $ npm install
   ```
-
-### This application will be live on the below AWS link(on request :sunglasses:)
-[AWS](http://ec2-18-208-164-38.compute-1.amazonaws.com:8080/)
-
-#### Default Password
-##### 1234
